@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.waterbottlecanvas.ui.theme.WaterBottleCanvasTheme
@@ -36,11 +37,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     var usedAmount by remember {
-                        mutableIntStateOf(400)
+                        mutableIntStateOf(500)
                     }
 
                     val totalWaterAmount = remember {
-                        2400
+                        5000
                     }
 
                     Column(
@@ -51,11 +52,16 @@ class MainActivity : ComponentActivity() {
                         WaterBottle(totalWaterAmount = totalWaterAmount, unit = "ml", usedWaterAmount = usedAmount, modifier = Modifier.width(250.dp))
                         Spacer(modifier = Modifier.height(20.dp))
                         Text(text = "Total amount is : $totalWaterAmount")
-                        Button(onClick = {
-                            if (usedAmount<=2400){
-                                usedAmount += 200
+                        Button(modifier = Modifier.width(300.dp),
+                            onClick = {
+                            if (usedAmount<5000){
+                                usedAmount += 500
+                                if (usedAmount>5000){
+                                    usedAmount = 5000
+                                }
                             }
-                        }) {
+                        }
+                        ) {
                             Text(text = "Drink")
                         }
                     }

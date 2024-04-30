@@ -30,9 +30,9 @@ fun WaterBottle(
     totalWaterAmount:Int,
     unit:String,
     usedWaterAmount:Int,
-    waterColor: Color = Color(0xff279eff),
+    waterColor: Color = Color(0xFFCA5980),
     bottleColor:Color = Color.White,
-    capColor: Color = Color(0xff0065b9)
+    capColor: Color = Color(0xFFBE1951)
 ){
 
     val waterParcantage = animateFloatAsState(
